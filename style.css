@@ -1,0 +1,523 @@
+/* =========================
+   Global color variables
+   ========================= */
+:root {
+  --bg: #030712;
+  --panel: rgba(255, 255, 255, 0.08);
+  --panel-strong: rgba(255, 255, 255, 0.14);
+  --card: #0f172a;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --accent: #f5c96b;
+  --accent-strong: #d39b1f;
+  --accent-2: #8b5cf6;
+  --soft: #111827;
+}
+
+/* =========================
+   Reset and base styles
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(17, 24, 39, 0.88)),
+    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=80")
+      center/cover fixed;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* .logo{
+  height: 250px;
+  width: auto;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding:0;
+} */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   Shared layout container
+   ========================= */
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================
+   Header and navigation
+   ========================= */
+.site-header {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: rgba(2, 6, 23, 0.82);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav {
+  /* Main header layout: keeps the brand and nav links aligned horizontally */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand {
+  /* Brand name styling: bold, uppercase, and highlighted in the accent color */
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 2.5 rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  /* Navigation links container: spaces each link evenly */
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-links a {
+  /* Individual nav links: use a soft purple tone and smooth hover transition */
+  color: var(--accent-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  transform: scale(1.09);
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+/* =========================
+   Hero section styling
+   ========================= */
+.hero-shell {
+  position: relative;
+  margin: 1.2rem auto 2.5rem;
+  padding: 1rem 0;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.34);
+  background:
+    linear-gradient(120deg, rgba(2, 6, 23, 0.78), rgba(15, 23, 42, 0.7)),
+    url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=80")
+      center/cover;
+}
+
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    transparent 44%,
+    rgba(245, 201, 107, 0.08)
+  );
+  pointer-events: none;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 4.5rem 0 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1,
+.section-heading h2,
+.about h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-text,
+.features p,
+.product-card p,
+.about p,
+.contact-box p {
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* =========================
+   Buttons and highlights
+   ========================= */
+.btn {
+  /* Shared button style for all call-to-action links and buttons */
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.95rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  /* Main action button: bright gold gradient for the most important CTA */
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #111827;
+  box-shadow: 0 12px 24px rgba(245, 201, 107, 0.22);
+}
+
+.btn-secondary {
+  /* Secondary button: lighter, outlined style for less prominent actions */
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--text);
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.hero-highlights li {
+  background: var(--panel);
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.hero-card,
+.features article,
+.product-card,
+.about-card,
+.contact-box {
+  /* Shared card appearance for featured content blocks and info panels */
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 24px 50px rgba(2, 6, 23, 0.3);
+}
+
+.hero-card {
+  /* Hero promotional card: clickable highlight with a richer visual treatment */
+  display: block;
+  padding: 1.6rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 185, 66, 0.42);
+  box-shadow: 0 28px 60px rgba(2, 6, 23, 0.34);
+}
+
+.hero-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pill {
+  background: rgba(244, 185, 66, 0.2);
+  color: var(--accent);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hero-card-visual {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.model-card {
+  min-height: 180px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.model-female {
+  background-image:
+    linear-gradient(135deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.25)),
+    url("https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=80");
+}
+
+.model-male {
+  background-image:
+    linear-gradient(135deg, rgba(2, 6, 23, 0.2), rgba(2, 6, 23, 0.3)),
+    url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80");
+}
+
+/* =========================
+   Feature cards and product grid
+   ========================= */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem 0 3rem;
+}
+
+.features article,
+.product-card,
+.about-card,
+.contact-box {
+  padding: 1.2rem;
+}
+
+.collection,
+.about,
+.contact {
+  padding: 5rem 0 3rem;
+}
+
+.section-heading {
+  margin-bottom: 1.2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.product-image {
+  /* Product image placeholder area for each fashion category card */
+  height: 190px;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.asoebi {
+  background:
+    linear-gradient(135deg, rgba(244, 185, 66, 0.7), rgba(217, 119, 6, 0.65)),
+    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+
+.office {
+  background:
+    linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(15, 23, 42, 0.7)),
+    url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+
+.traditional {
+  background:
+    linear-gradient(135deg, rgba(249, 115, 22, 0.6), rgba(120, 53, 15, 0.7)),
+    url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+
+.kids {
+  background:
+    linear-gradient(135deg, rgba(236, 72, 153, 0.6), rgba(129, 140, 248, 0.65)),
+    url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+
+.shoes {
+  background:
+    linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(4, 120, 87, 0.7)),
+    url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+
+.bags {
+  background:
+    linear-gradient(135deg, rgba(167, 139, 250, 0.7), rgba(88, 28, 135, 0.7)),
+    url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+
+.product-card h3,
+.features h3,
+.about-card h3,
+.contact-box h3 {
+  margin-bottom: 0.5rem;
+}
+.product-card:hover{
+  transform: translateY(-2px);
+  transition: all 0.8s linear;
+
+  &:hover .product-image{
+    transform: scale(1.03);
+    transition: all 0.8s linear;
+  }
+}
+
+/* =========================
+   About and contact sections
+   ========================= */
+.about {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.about-card ul {
+  margin-left: 1rem;
+  color: var(--muted);
+}
+
+.contact-box {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1rem;
+}
+
+.contact-form {
+  /* Contact form layout: stacks fields vertically with consistent spacing */
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  /* Input and textarea styling: soft transparent background with rounded edges */
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+  /* outline: var(--accent-strong); */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  box-shadow: 0px 5px 15px 0px #f5c66084;
+  transform: scale(1.04);
+  transition: all 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #cbd5e1;
+}
+
+.contact-form button {
+  /* Submit button styling: bold, visible, and matching the brand accent */
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #111827;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(245, 201, 107, 0.2);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 0 2rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   Responsive behavior
+   ========================= */
+@media (max-width: 900px) {
+  .hero,
+  .about,
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+
+  .features,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero h1,
+  .section-heading h2,
+  .about h2 {
+    font-size: 1.8rem;
+  }
+}
