@@ -122,7 +122,7 @@ main {
 
 .hero-shell {
   position: relative;
-  margin: 1.2rem;
+  margin: 1.2rem 1.0rem;
   padding: 1rem 0;
   border-radius: 32px;
   overflow: hidden;
@@ -346,6 +346,7 @@ main {
   );
   height: 150px;
   margin: 20px;
+  border: #d39b1f;
 }
 
 /* =========================
@@ -394,8 +395,8 @@ main {
 
 .asoebi {
   background:
-    linear-gradient(135deg, rgba(244, 185, 66, 0.7), rgba(217, 119, 6, 0.65)),
-    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80")
+    linear-gradient(135deg, rgba(244, 185, 66, 0.7), rgba(146, 120, 91, 0.435)),
+    url("Images/bg 1.jpeg")
       center/cover;
 }
 
